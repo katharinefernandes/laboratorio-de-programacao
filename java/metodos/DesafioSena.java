@@ -2,7 +2,7 @@ package metodos;
 
 import java.util.Scanner;
 
-public class Desafio {
+public class DesafioSena {
 
 	public static void main(String[] args) {
 
