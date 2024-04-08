@@ -1,0 +1,12 @@
+A=3 | B=4 | C=8
+
+a) A>3.e.C=8  F.e.V -> F
+b) A<>2.ou.B=5 V.ou.F -> V
+c) A=3.ou.B>=2.e.C=8 -> V.ou.V.e.V -> V
+d) A=3.e..não.B<=4.e.C=8 -> V.e..nao.V.e.V -> V.e.F -> F
+e) A<>8.ou.B=4.e.C>2 -> V.ou.V.e.V -> V
+f) B>4.e.C<>2 -> F.e.V -> F
+g) A>B.e.C<>4 -> 3>4.e.8<>4 -> F.e.V -> F
+h) A<>B.e.B=C -> V.e.F -> F
+i) C>2.ou.A<B -> V.ou.V -> V
+j) A>B.ou.B>A.e.C<>B -> F.ou.V.e.V -> V
