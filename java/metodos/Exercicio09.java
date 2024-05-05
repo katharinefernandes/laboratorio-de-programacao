@@ -3,6 +3,14 @@ package metodos;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
+/*  -------------------- TESTES --------------------
+	DIEGO | S  | 1  | 420.4 (2,2,2,2) | 14 (1,1,1,1)
+	EDSON | D  | 2  | 210.2 (1,1,1,1) | 28 (2,2,2,2) 
+	LUCAS | SL | 2  | 420.4 (2,2,2,2) | 42 (3,3,3,3)
+	CAROL | SP | 3  | 630.6 (3,3,3,3) | 28 (2,2,2,2)
+	MAURO | SL | 4  | 840.8 (4,4,4,4) | 14 (1,1,1,1)
+*/
+
 public class Exercicio09 {
 
 	static Scanner sc = new Scanner(System.in);
