@@ -1,11 +1,13 @@
 package metodos;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class Exercicio10 {
 
 	static Scanner sc = new Scanner(System.in);
 	static String[] nomesPilotos = new String[] { "Daniel", "Kimi", "Lewis", "Nico", "Sebastian" };
+	static DecimalFormat dp = new DecimalFormat("#%");
 
 	public static void main(String[] args) {
 
@@ -21,7 +23,7 @@ public class Exercicio10 {
 		int[] totalPontuacao = verificaTotalPontuacao(pontuacao);
 		String[] analiseMeta = analisaMeta(totalPontuacao, metas);
 
-		System.out.println("------ PONTUAÇÃO PILOTOS ------");
+		System.out.println("\n------ PONTUAÇÃO PILOTOS ------");
 		for (int i = 0; i < nomesPilotos.length; i++) {
 			System.out.println("Piloto - " + nomesPilotos[i]);
 			for (int j = 0; j < paises.length; j++) {
@@ -33,6 +35,7 @@ public class Exercicio10 {
 			System.out.println("");
 		}
 
+		exibeMelhorPontuacacao(pontuacao, paises);
 		rankingPilotos(totalPontuacao);
 	}
 
@@ -57,11 +60,19 @@ public class Exercicio10 {
 	public static int[] verificaTotalPontuacao(int[][] pontuacao) {
 
 		int[] totalPontuacao = new int[5];
+		int totalPontuacaoGeral = 0;
 
 		for (int l = 0; l < pontuacao.length; l++) {
 			for (int c = 0; c < pontuacao[0].length; c++) {
 				totalPontuacao[l] += pontuacao[l][c];
+				totalPontuacaoGeral += pontuacao[l][c];
 			}
+		}
+
+		System.out.println("\n------ DESEMPENHO PILOTOS ------");
+		for (int i = 0; i < 5; i++) {
+			System.out.println("Piloto - " + nomesPilotos[i] + " Porcentagem de desempenho - "
+					+ dp.format((double) totalPontuacao[i] / totalPontuacaoGeral));
 		}
 
 		return totalPontuacao;
@@ -105,6 +116,28 @@ public class Exercicio10 {
 			System.out.println((i + 1) + "° Piloto " + nomesPilotos[i] + " | Pontuação Total: " + totalPontuacao[i]);
 		}
 
+	}
+	
+	public static void exibeMelhorPontuacacao(int[][] pontuacao, String[] paises) {
+		
+		int maiorPontuacao = 0, indicePiloto = 0, indicePais = 0;
+		
+		// piloto
+		for (int l = 0; l < paises.length; l++) {
+			// pais
+			for (int c = 0; c < paises.length; c++) {
+				if(pontuacao[l][c] > maiorPontuacao) {
+					maiorPontuacao = pontuacao[l][c];
+					indicePiloto = l;
+					indicePais = c;
+				}
+			}
+		}
+		
+		System.out.println("\n---- MELHOR PONTUAÇÃO ------");
+		System.out.println("Pontuação - "+maiorPontuacao);
+		System.out.println("País      - "+ paises[indicePais]);
+		System.out.println("Piloto    - "+ nomesPilotos[indicePiloto]);
 	}
 
 }
